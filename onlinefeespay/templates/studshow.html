@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2" width="100%">
+        <form action="" method="post">
+        
+        
+        {% csrf_token %}
+        <tr>
+            <td>REG NO</td>
+            <td>NAME</td>
+            <td>DEPARTMENT</td>
+            <td>GENDER</td>
+            <td>EMAIL</td>
+            <td>YEAR</td>
+            <td>MOBILE</td>
+            <td>PASSWORD</td>
+            <td>HOSTEL OR DAYS</td>
+            <td>QUOTA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+            </tr>
+
+            
+            {% for sdata in data %}
+
+            <tr>
+            <td>{{sdata.regno}}</td>
+            <td>{{sdata.name}}</td>
+            <td>{{sdata.department}}</td>
+            <td>{{sdata.gender}}</td>
+            <td>{{sdata.email}}</td>
+            <td>{{sdata.year}}</td>
+            <td>{{sdata.mobile}}</td>
+            <td>{{sdata.password}}</td>
+            <td>{{sdata.hostel_or_dayscholar}}</td>
+            <td>{{sdata.quota}}</td>
+            <td><a href="/update/{{sdata.id}}">update</td>
+            <td><a href="/delete/{{sdata.id}}">delete</td>
+
+
+        
+            </tr>
+                
+            {% endfor %}
+                
+
+
+            </form>
+            </table>
+
+            <a href="/save">add new students</a><br><br><br>
+            <a href="/Logout">Logout</a> 
+</body>
+</html>
